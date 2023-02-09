@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://World/Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Characters/Villager/Villager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Data/SceneDataLoader.gd" type="Script" id=4]
+[ext_resource path="res://World/Houses/HouseInteriorTiles.tscn" type="PackedScene" id=5]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="House4" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TileMap" parent="Background" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 1, 2, 1, 3, 3, 1, 3, 4, 0, 4, 5, 0, 0, 6, 1, 3, 7, 1, 3, 8, 1, 1, 9, 1, 4, 65536, 1, 65536, 65537, 1, 131073, 65538, 1, 131073, 65539, 1, 131073, 65540, 0, 131076, 65541, 0, 131072, 65542, 1, 131073, 65543, 1, 131073, 65544, 1, 131073, 65545, 1, 131076, 131072, 1, 65536, 131073, 1, 131073, 131074, 1, 131073, 131075, 1, 131073, 131076, 0, 131076, 131077, 0, 131072, 131078, 1, 131073, 131079, 1, 131073, 131080, 1, 131073, 131081, 1, 131076, 196608, 0, 196608, 196609, 1, 131073, 196610, 1, 131073, 196611, 0, 196610, 196612, 0, 196612, 196613, 0, 196608, 196614, 0, 196610, 196615, 1, 131073, 196616, 1, 131073, 196617, 0, 196612, 262144, 1, 65536, 262145, 1, 131073, 262146, 1, 131073, 262147, 1, 131073, 262148, 1, 131073, 262149, 1, 131073, 262150, 1, 131073, 262151, 1, 131073, 262152, 1, 131073, 262153, 1, 131076, 327680, 1, 65536, 327681, 1, 131073, 327682, 1, 131073, 327683, 1, 131073, 327684, 1, 131073, 327685, 1, 131073, 327686, 1, 131073, 327687, 1, 131073, 327688, 1, 131073, 327689, 1, 131076, 393216, 1, 65536, 393217, 1, 131073, 393218, 1, 131073, 393219, 1, 131073, 393220, 0, 0, 393221, 0, 3, 393222, 0, 3, 393223, 0, 3, 393224, 0, 3, 393225, 0, 4, 458752, 1, 65536, 458753, 1, 131073, 458754, 1, 131073, 458755, 1, 131073, 458756, 1, 131073, 458757, 1, 131073, 458758, 1, 131073, 458759, 1, 131073, 458760, 1, 131073, 458761, 1, 131076, 524288, 1, 65536, 524289, 1, 131073, 524290, 1, 131073, 524291, 1, 131073, 524292, 1, 131073, 524293, 1, 131073, 524294, 1, 131073, 524295, 1, 131073, 524296, 1, 131073, 524297, 1, 131076, 589824, 1, 196608, 589825, 0, 196610, 589826, 0, 196609, 589827, 0, 196610, 589828, 0, 196609, 589829, 0, 196610, 589830, 0, 196611, 589831, 0, 196610, 589832, 0, 196609, 589833, 1, 196612 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, 160 )
+
+[node name="AnimatedSprite" parent="YSort/Player" index="1"]
+animation = "Left"
+
+[node name="CameraMain" parent="YSort/Player" index="3"]
+current = false
+
+[node name="AnimationTree" parent="YSort/Player" index="6"]
+parameters/playback = SubResource( 1 )
+
+[node name="Door" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 208, 320 )
+POSITION_KEY = "H4"
+go_to = "res://World/Town.tscn"
+
+[node name="Position2D" parent="YSort/Door" index="1"]
+position = Vector2( 4.05312e-06, -40 )
+
+[node name="Villager" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 48, 264 )
+normal_dialog = "Thanks for the cure doc, have a safe trip home."
+sick_dialog = "*hack* *cough* [Spits]
+|Eya, you the doc?
+|Listen, Im real sick.
+|*Groans*
+|...
+|*cough* *cough*
+|An' my kids are useless, not taking care of their pop-pop.
+|You makin' cures with blood samples?
+|Sign me up!
+|000"
+patient_dialog = "I am waiting for a cure!
+|You better we working harder than my kids, I tell ya...
+|*cough* *hack*"
+inject_dialog = "001
+|Ow! Easy doc!
+|...
+|You sure this works?
+|...
+|Ya, I'm starting to feel a bit better!
+|Hope it wasn't what sheriff Buster had. |Rest in piece, ol' buddy."
+cured_dialog = "My kids have one sniffle, and they act like their lives are ending.
+|When I was a kid, I was sick all the time.
+|Did I stop working? NO!
+|Did I want to abandon my old pop-pop?
+|NO
+|Ungrateful, I tell ya..."
+
+[node name="Sprite" parent="YSort/Villager" index="1"]
+frame = 5
+
+[node name="Icon" parent="YSort/Villager" index="2"]
+frame = 3
+
+[node name="Villager2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 248, 80 )
+normal_dialog = "Stay safe doc....
+|Did you check my brother?"
+sick_dialog = "*Cough* *Cough*
+|You the doc?
+|*cough* *cough*
+|A sample? Ya go ahead.
+|000"
+patient_dialog = "You have my medicine yet?
+|Ok, come back soon..."
+inject_dialog = "Oh boy, a needle...
+|001
+|Ah, that wasn't so bad.
+|I feel better already.
+|Thanks doc.
+"
+cured_dialog = "Hey, if you have any job openings in the city, I am willing to move there.
+|Just let me know, 'cuz I don't wanna stay here forever.
+|With him..."
+
+[node name="Sprite" parent="YSort/Villager2" index="1"]
+frame = 2
+
+[node name="Icon" parent="YSort/Villager2" index="2"]
+frame = 3
+
+[node name="Villager3" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 80, 80 )
+normal_dialog = "Pop-pop is sometimes mean to us.
+|But my sister protects me."
+sick_dialog = "*Sniffle* *Hack*
+|Hi mister. You're the doctor, hey?
+|I don't feel well...
+|I'm scared...
+|*cough* *cough*
+|000"
+patient_dialog = "The sheriff died last week to being sick...
+|Is that going to happen...
+|...to me?"
+inject_dialog = "I'm ready...
+|001
+|...
+|I feel a bit better. Am I going to be ok?"
+cured_dialog = "I am feeling a lot better actually.
+Thank you mister!"
+
+[node name="Sprite" parent="YSort/Villager3" index="1"]
+frame = 1
+
+[node name="Icon" parent="YSort/Villager3" index="2"]
+frame = 3
+
+[editable path="YSort/Player"]
+[editable path="YSort/Door"]
+[editable path="YSort/Villager"]
+[editable path="YSort/Villager2"]
+[editable path="YSort/Villager3"]

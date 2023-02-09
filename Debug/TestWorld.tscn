@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Data/SceneDataLoader.gd" type="Script" id=1]
+[ext_resource path="res://World/Characters/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NewCureImages/Buttons/BoxTemplateBig.png" type="Texture" id=4]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="TestWorld" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = -766.0
+margin_top = -894.0
+margin_right = 1077.0
+margin_bottom = 1224.0
+color = Color( 0.377426, 0.796875, 0.186768, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 15.9552, -96.9843 )
+
+[node name="AnimationTree" parent="YSort/Player" index="6"]
+parameters/playback = SubResource( 1 )
+
+[node name="Door" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1.96265, -226.215 )
+POSITION_KEY = "World"
+go_to = "res://Debug/TestHouse.tscn"
+
+[node name="Position2D" parent="YSort/Door" index="1"]
+position = Vector2( -1.96265, 90.215 )
+
+[node name="Sprite" parent="YSort/Door" index="2"]
+texture = ExtResource( 4 )
+
+[editable path="YSort/Player"]
+[editable path="YSort/Door"]

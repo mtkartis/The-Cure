@@ -1,0 +1,172 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://World/ScienceTable/ScienceTablePos.gd" type="Script" id=1]
+[ext_resource path="res://World/ScienceTable/Science.gd" type="Script" id=2]
+[ext_resource path="res://Images/tabletop.png" type="Texture" id=3]
+[ext_resource path="res://Images/tabletop2.png" type="Texture" id=4]
+[ext_resource path="res://Images/crosshair.png" type="Texture" id=5]
+[ext_resource path="res://Images/Swatches.png" type="Texture" id=6]
+[ext_resource path="res://World/ScienceTable/Cell/Cell.tscn" type="PackedScene" id=7]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
+
+[node name="Science" type="Node"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1138.16
+margin_top = -1149.09
+margin_right = 1148.84
+margin_bottom = 1184.91
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Bottom"]
+margin_right = 761.0
+margin_bottom = 704.0
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cell" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
+
+[node name="Tabletop" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Tabletop"]
+margin_left = -188.051
+margin_top = -166.444
+margin_right = 458.949
+margin_bottom = 466.556
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tabletop/TextureRect"]
+margin_left = 407.776
+margin_top = 376.168
+margin_right = 513.776
+margin_bottom = 485.168
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabletop/TextureRect/VBoxContainer"]
+margin_right = 106.0
+margin_bottom = 31.0
+text = "FIND THIS 
+VIRUS CELL:"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tabletop/TextureRect/VBoxContainer"]
+margin_top = 35.0
+margin_right = 106.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cell" parent="Tabletop/TextureRect/VBoxContainer" instance=ExtResource( 7 )]
+position = Vector2( 54.7179, 54.1799 )
+
+[node name="Label2" type="Label" parent="Tabletop/TextureRect/VBoxContainer"]
+margin_top = 78.0
+margin_right = 106.0
+margin_bottom = 109.0
+size_flags_vertical = 8
+text = "PRESS 'SPACE' 
+TO PICK A CELL"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Tabletop/TextureRect"]
+margin_left = 208.815
+margin_top = 173.691
+margin_right = 480.815
+margin_bottom = 187.691
+text = "HOLD 'SHIFT' TO MOVE THE LENS QUICKER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Tabletop"]
+margin_left = 133.398
+margin_top = 138.604
+margin_right = 173.398
+margin_bottom = 178.604
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position2D" type="KinematicBody2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Position2D"]
+current = true
+
+[node name="Area2D" type="Area2D" parent="Position2D"]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="Position2D"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="ShakeTimer" type="Timer" parent="Position2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -328 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 320, 8, 384, 328, 320, 648, 0, 712, -320, 648, -384, 328, -320, 8, 0, -56, 320, 0, 304, -104, 8, -112, -392, -40, -480, 224, -480, 640, -168, 848, 360, 832, 472, 488, 416, -80 )
+
+[connection signal="check" from="Position2D" to="." method="_on_Position2D_check"]
+[connection signal="timeout" from="Position2D/ShakeTimer" to="." method="_on_ShakeTimer_timeout"]

@@ -1,0 +1,226 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Title/Title.gd" type="Script" id=1]
+[ext_resource path="res://NewCureImages/Font/Font20.png" type="Texture" id=2]
+[ext_resource path="res://NewCureImages/Font/Font3.png" type="Texture" id=3]
+[ext_resource path="res://NewCureImages/Font/Font19.png" type="Texture" id=4]
+[ext_resource path="res://NewCureImages/Font/Font28.png" type="Texture" id=5]
+[ext_resource path="res://NewCureImages/Title.png" type="Texture" id=7]
+[ext_resource path="res://NewCureImages/Font/Font21.png" type="Texture" id=8]
+[ext_resource path="res://NewCureImages/Font/Font18.png" type="Texture" id=9]
+[ext_resource path="res://NewCureImages/Font/Font8.png" type="Texture" id=10]
+[ext_resource path="res://NewCureImages/Font/Font5.png" type="Texture" id=11]
+[ext_resource path="res://NewCureImages/Font/Font1.png" type="Texture" id=12]
+[ext_resource path="res://NewCureImages/Star-Sheet.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 15 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 15 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 15 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 15 )
+region = Rect2( 40, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 15 )
+region = Rect2( 48, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 19.591, -38, 0, 0, 0, 0, 19.5341, 97.6971 )
+}
+
+[node name="Title" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 160, 159.95 )
+scale = Vector2( 2.5, 2.50078 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="Stars" type="Node2D" parent="."]
+position = Vector2( 7.62939e-06, -0.0991974 )
+scale = Vector2( 5, 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Stars"]
+position = Vector2( 7.81701, 8.4726 )
+frames = SubResource( 11 )
+frame = 6
+speed_scale = 0.8
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Stars"]
+position = Vector2( 11.817, 21.818 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Stars"]
+position = Vector2( 52.4422, 4.4726 )
+frames = SubResource( 11 )
+speed_scale = 0.4
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Stars"]
+position = Vector2( 44.3543, 17.818 )
+frames = SubResource( 11 )
+frame = 1
+speed_scale = 0.6
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Stars"]
+position = Vector2( 22.0163, 4.4726 )
+frames = SubResource( 11 )
+frame = 5
+speed_scale = 0.5
+playing = true
+
+[node name="StarTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Title" type="Node2D" parent="."]
+position = Vector2( 96.84, -59.5501 )
+
+[node name="Path2D" type="Path2D" parent="Title"]
+position = Vector2( 44.409, 30 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Title/Path2D"]
+position = Vector2( 19.591, -38 )
+rotation = 1.5708
+rotate = false
+loop = false
+
+[node name="Text" type="VBoxContainer" parent="Title/Path2D/PathFollow2D"]
+margin_left = -11.1287
+margin_top = 94.7802
+margin_right = 27.8713
+margin_bottom = 106.78
+rect_rotation = 270.0
+rect_scale = Vector2( 5, 5 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="HBoxContainer" parent="Title/Path2D/PathFollow2D/Text"]
+margin_right = 39.0
+margin_bottom = 4.0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 5.0
+margin_right = 9.0
+margin_bottom = 4.0
+texture = ExtResource( 10 )
+
+[node name="TextureRect3" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 10.0
+margin_right = 14.0
+margin_bottom = 4.0
+texture = ExtResource( 11 )
+
+[node name="TextureRect4" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 15.0
+margin_right = 19.0
+margin_bottom = 4.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect5" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 20.0
+margin_right = 24.0
+margin_bottom = 4.0
+texture = ExtResource( 3 )
+
+[node name="TextureRect6" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 25.0
+margin_right = 29.0
+margin_bottom = 4.0
+texture = ExtResource( 8 )
+
+[node name="TextureRect7" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 30.0
+margin_right = 34.0
+margin_bottom = 4.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect8" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Title"]
+margin_left = 35.0
+margin_right = 39.0
+margin_bottom = 4.0
+texture = ExtResource( 11 )
+
+[node name="Start" type="HBoxContainer" parent="Title/Path2D/PathFollow2D/Text"]
+visible = false
+margin_left = 5.0
+margin_top = 14.0
+margin_right = 33.0
+margin_bottom = 18.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Start"]
+margin_right = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 4 )
+
+[node name="TextureRect2" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Start"]
+margin_left = 6.0
+margin_right = 10.0
+margin_bottom = 4.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Start"]
+margin_left = 12.0
+margin_right = 16.0
+margin_bottom = 4.0
+texture = ExtResource( 12 )
+
+[node name="TextureRect4" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Start"]
+margin_left = 18.0
+margin_right = 22.0
+margin_bottom = 4.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect5" type="TextureRect" parent="Title/Path2D/PathFollow2D/Text/Start"]
+margin_left = 24.0
+margin_right = 28.0
+margin_bottom = 4.0
+texture = ExtResource( 2 )
+
+[connection signal="timeout" from="StarTimer" to="." method="_on_StarTimer_timeout"]

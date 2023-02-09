@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Data/SaveData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+version = ""
+data = {
+"/root/House3/YSort/Villager": 3,
+"/root/House3/YSort/Villager2": 3,
+"/root/Town/YSort/Villager": 0,
+"PLAYER": [ 0, 0, 2 ]
+}

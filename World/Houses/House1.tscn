@@ -1,0 +1,387 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://World/Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Characters/Villager/Villager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Data/SceneDataLoader.gd" type="Script" id=4]
+[ext_resource path="res://Images/HouseInterior.png" type="Texture" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 16.8349, 32, 16.3526, 32, 0, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 23.5548, 15.8704, 32, 32, 16.8032, 31.7847, 17.2855, 15.8704, 0, 16.3526, 0, 0, 32, 0, 32, 14.4236, 32, 31.3025, 32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 16.8032, 0.266968, 32, 0, 32, 32, 16.8032, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 16.8032, 0.577927, 32, 0, 32, 32, 16.8032, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 32, 0, 32, 32, 0, 32, 0, 15.3565, 15.8387, 15.3565, 16.321, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 15.8387, 32, 15.3565, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 15.7181, 32, 15.7181, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 15.3565, 32, 15.3565, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 17.0062, 0, 16.5239, 15.3565, 32, 14.8742 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 0, 16.0417, 0, 17.0062, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 0, 0, 17.0062, 0, 17.0062, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 16.8349, 16.5239, 16.3526, 17.0062, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 16.3526, 0, 16.3526 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 16.8349, 0, 17.3171 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 16.8349, 0, 16.8349 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 32, 0, 32, 32, 15.8387, 32, 15.8387, 16.3526, 0, 16.8349, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 16.321, 0, 32, 0, 32, 32, 15.8387, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 15.8387, 0, 32, 0, 32, 32, 15.8387, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 32, 0, 32, 32, 0, 32, 0, 14.8742, 15.8387, 14.8742, 15.3565, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 0, 15.3565, 32, 15.8387, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 0, 15.7181, 32, 15.7181, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 0, 14.8742, 32, 15.3565, 32, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 16.5239, 15.3565, 32, 14.8742, 32, 32, 0, 32, 0, 0, 17.0062, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 0, 0, 17.0062, 0, 17.0062, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 0, 0, 16.0417, 0, 16.5239, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 17.0062, 32, 0, 32, 0, 0, 32, 0, 32, 16.8349, 16.5239, 16.8349 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "HouseInteriorAtlas"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 32, 160, 128 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 3, 2 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "HouseInteriorAuto"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 32, 160, 128 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 1
+1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 3 ), 54, Vector2( 0, 4 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 2 ), 511, Vector2( 2, 3 ), 63, Vector2( 2, 4 ), 63, Vector2( 3, 0 ), 504, Vector2( 4, 0 ), 216, Vector2( 4, 2 ), 219, Vector2( 4, 3 ), 27, Vector2( 4, 4 ), 27 ]
+1/autotile/icon_coordinate = Vector2( 1, 2 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 16 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="House1" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TileMap" type="TileMap" parent="Background"]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+collision_layer = 32
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 1, 2, 1, 3, 3, 1, 3, 4, 1, 1, 5, 1, 3, 6, 0, 0, 7, 1, 3, 8, 1, 1, 9, 1, 4, 65536, 1, 65536, 65537, 1, 131073, 65538, 1, 131073, 65539, 1, 131073, 65540, 1, 131073, 65541, 1, 131073, 65542, 0, 65536, 65543, 1, 131073, 65544, 1, 131073, 65545, 1, 131076, 131072, 1, 65536, 131073, 1, 131073, 131074, 1, 131073, 131075, 1, 131073, 131076, 1, 131073, 131077, 1, 131073, 131078, 0, 65536, 131079, 1, 131073, 131080, 1, 131073, 131081, 1, 131076, 196608, 1, 65536, 196609, 1, 131073, 196610, 1, 131073, 196611, 1, 131073, 196612, 1, 131073, 196613, 1, 131073, 196614, 0, 65536, 196615, 1, 131073, 196616, 1, 131073, 196617, 1, 131076, 262144, 1, 65536, 262145, 1, 131073, 262146, 1, 131073, 262147, 1, 131073, 262148, 1, 131073, 262149, 1, 131073, 262150, 0, 196608, 262151, 0, 196611, 262152, 0, 196611, 262153, 0, 196612, 327680, 1, 65536, 327681, 1, 131073, 327682, 1, 131073, 327683, 1, 131073, 327684, 1, 131073, 327685, 1, 131073, 327686, 1, 131073, 327687, 1, 131073, 327688, 1, 131073, 327689, 1, 131076, 393216, 1, 65536, 393217, 1, 131073, 393218, 1, 131073, 393219, 1, 131073, 393220, 1, 131073, 393221, 1, 131073, 393222, 1, 131073, 393223, 1, 131073, 393224, 1, 131073, 393225, 1, 131076, 458752, 1, 65536, 458753, 1, 131073, 458754, 1, 131073, 458755, 1, 131073, 458756, 1, 131073, 458757, 1, 131073, 458758, 1, 131073, 458759, 1, 131073, 458760, 1, 131073, 458761, 1, 131076, 524288, 1, 65536, 524289, 1, 131073, 524290, 1, 131073, 524291, 1, 131073, 524292, 1, 131073, 524293, 1, 131073, 524294, 1, 131073, 524295, 1, 131073, 524296, 1, 131073, 524297, 1, 131076, 589824, 1, 196608, 589825, 0, 196609, 589826, 0, 196609, 589827, 0, 196609, 589828, 1, 196610, 589829, 0, 196611, 589830, 1, 196610, 589831, 0, 196609, 589832, 0, 196609, 589833, 1, 196612 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, 160 )
+
+[node name="CameraMain" parent="YSort/Player" index="3"]
+current = false
+
+[node name="AnimationTree" parent="YSort/Player" index="6"]
+parameters/playback = SubResource( 1 )
+
+[node name="Door" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 176, 320 )
+POSITION_KEY = "H1"
+go_to = "res://World/Town.tscn"
+
+[node name="Position2D" parent="YSort/Door" index="1"]
+position = Vector2( 4.05312e-06, -40 )
+
+[node name="Villager" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 112, 104 )
+normal_dialog = "I'm keepin' my eye on you. There's been some strange appearances around here lately."
+sick_dialog = "I caught this lady after she ran away from the sheriff.
+|Whose the sheriff?
+|Well...
+|Me now.
+|Ol' Buster is in the ground now. That's why we sent for a doctor. 
+|And now you're here.
+|Anyway, I have this rash, like everyone else. And my temperature is high.
+|This is how Buster got sick, so you better hake some blood samples and get to it!
+|000"
+patient_dialog = "C'mon now, I dont want to follow Buster anymore. 
+|Dont like where he's headed..."
+inject_dialog = "001
+|This better work...
+|...
+|I think I feel better, I just gotta lie down or something for a while."
+cured_dialog = "I think I'll be alright. Thanks again doc."
+
+[node name="Sprite" parent="YSort/Villager" index="1"]
+frame = 4
+
+[node name="Icon" parent="YSort/Villager" index="2"]
+frame = 1
+
+[node name="Villager2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 256, 136 )
+normal_dialog = "Now I just gotta get out of here..."
+sick_dialog = "Hey! Listen... Not too loud...
+|That deputy is crazy keeping me locked here for no reason.
+|I can't be here. Its not safe.
+|I an getting sick like the rest of this town.
+|Quickly, take some sampls of my blood and develop a cure.
+|000
+|I don't want to die. Come back quickly!
+"
+patient_dialog = "You got a cure yet?
+|Well, what have you been doing this whole time?!
+|START WORKING ON IT!
+|My life cannot end in a dump like this."
+inject_dialog = "Quick, give me the cure!
+|001
+|...
+|Ahh geez, I think you did it...
+|...thank you..."
+cured_dialog = "When you leave here, just put it all behind you and never look back, aye?
+|This town isn't work remembering.
+|Its in the middle of a potential oil sands operation after all...
+|...Don't tell anyone I told you..."
+
+[node name="Sprite" parent="YSort/Villager2" index="1"]
+frame = 3
+
+[node name="Icon" parent="YSort/Villager2" index="2"]
+frame = 1
+
+[editable path="YSort/Player"]
+[editable path="YSort/Door"]
+[editable path="YSort/Villager"]
+[editable path="YSort/Villager2"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/HouseExterior.png" type="Texture" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "House"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 32, 128, 96 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 32 )
+
+[node name="House" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -65538, 0, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Town5.wav-34254e172167d02037fe6596c1c35b2e.sample"
+
+[deps]
+
+source_file="res://Sounds/Town5.wav"
+dest_files=[ "res://.import/Town5.wav-34254e172167d02037fe6596c1c35b2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
